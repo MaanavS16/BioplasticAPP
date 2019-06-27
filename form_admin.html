@@ -1,0 +1,52 @@
+<script type="text/javascript">
+function submit_reqs() {
+var fname = document.getElementById("fname").value;
+var lname = document.getElementById("lname").value;
+var cname = document.getElementById("cname").value;
+var weight = document.getElementById("weight").value;
+var cost = document.getElementById("cost").value;
+var flexb = document.getElementById("flexb").value;
+
+if (fname == "" || lname == "" || cname == ""){
+alert("First Name, Last Name and Company are required");
+return false;
+}else if ((weight != "" && cost != "" && flexb != "") || (weight == "" && cost == "" && flexb == "") || (cost != "" && flexb != "") || (weight != "" && flexb != "") || (weight != "" && cost != "")) {
+alert("Only one item out of weight, cost and flexibility need to be specified");
+return false;
+}
+else {
+document.getElementById("form_id").submit(); //form submission
+}
+}
+</script>
+<form method="post" id="form_id" action="index.php">
+
+<table>
+<tr>
+<td><label>First Name: &nbsp;&nbsp;</label><input id=fname type=text name=fname></td><td><label>Last Name: &nbsp;&nbsp;</label><input id=lname type=text name=lname></td><td></td>
+</tr>
+<tr>
+<td></td><td></td><td></td>
+</tr>
+
+<tr>
+<td><label>Company: &nbsp;&nbsp;</label><input type=text id=cname name=cname></td><td></td><td></td>
+</tr>
+<tr>
+<td></td><td></td><td></td>
+</tr>
+
+<tr>
+<td><label>Weight(in grams): &nbsp;&nbsp;</label><input type=number id=weight name=weight></td><td><label>Cost(in Dollars): &nbsp;&nbsp;</label><input id=cost type=number name=cost></td><td><label>Flexibility(in micrometer elongation per gram): &nbsp;&nbsp;</label><input type=number id=flexb name=flexb></td>
+</tr>
+
+<tr>
+<td></td><td></td><td></td>
+</tr>
+
+<tr>
+<td></td><td></td><td><input type="button" value=Submit name="Submit" onclick="submit_reqs()"></input></td>
+</tr>
+
+</table>
+</form>
